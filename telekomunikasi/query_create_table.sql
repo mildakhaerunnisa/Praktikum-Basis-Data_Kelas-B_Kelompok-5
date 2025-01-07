@@ -101,4 +101,11 @@ CREATE TABLE Keluhan (
     FOREIGN KEY (karyawan_id) REFERENCES Karyawan(karyawan_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-SELECT * FROM Pelanggan
+CREATE TABLE logStatusKeluhan (
+    log_id INT IDENTITY(1,1) PRIMARY KEY,
+    status_keluhan_lama VARCHAR(20),
+    status_keluhan_baru VARCHAR(20),
+    tanggal_perubahan DATE NOT NULL,
+	keluhan_id INT NOT NULL
+    FOREIGN KEY (keluhan_id) REFERENCES Keluhan(keluhan_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
